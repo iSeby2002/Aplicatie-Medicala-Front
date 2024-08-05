@@ -55,7 +55,8 @@ const RegisterPage = () => {
     const validateNume = (value: string) => /^[a-zA-Z\s-]+$/.test(value);
     const validateEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     const validateTelefon = (value: string) => /^[0-9]{10}$/.test(value);
-    const validateParola = (value: string) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
+    const validateParola = (value: string) =>
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[().*\[\]!@#$%^&*_\-+={}|\~`:;"'<,>.?/]).{8,}$/.test(value);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -79,7 +80,7 @@ const RegisterPage = () => {
                 }
             }).then((response: any) => {
                 console.log(response)
-                navigate("/LoginPage");
+                navigate("/");
             }).catch((error: any) => {
                 console.error(error)
                 setGresit(true)
