@@ -770,7 +770,7 @@ const OftalmologPage = () => {
     const [selectedProgramare, setSelectedProgramare] = React.useState(null);
     
     useEffect(() => {
-        axios.post("http://localhost:8080/medici/fisaMedicala/getProgramariCurente", selectedDataProgramarii.format('YYYY-MM-DD'),{
+        axios.post(`${process.env.REACT_APP_SERVER_LINK}/medici/fisaMedicala/getProgramariCurente`, selectedDataProgramarii.format('YYYY-MM-DD'),{
             headers: {
                 "content-type": "application/json"
             }
